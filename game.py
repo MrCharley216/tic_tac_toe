@@ -3,6 +3,12 @@ from gameparts import Board
 from gameparts.exceptions import InvalidMoveError, CellOccupiedError
 
 
+def save_result(str_result):
+    file = open('results.txt', 'a', encoding='utf-8')
+    file.write(str_result + '\n')
+    file.close()
+
+
 def main():
     game = Board()
     current_player = 'X'
@@ -48,9 +54,11 @@ def main():
 
         if game.check_win(current_player):
             print(f'Победили {current_player}.')
+            save_result(f'Победили {current_player}!')
             running = False
         elif game.is_board_full():
             print('Ничья!')
+            save_result('Ничья!')
             running = False
 
         current_player = 'O' if current_player == 'X' else 'X'
