@@ -134,6 +134,16 @@ def main():
                     draw_figures(game.board)
                 else:
                     print('Ячейка занята!')
+                if game.check_win(current_player):
+                    print(f'Победили {current_player}.')
+                    save_result(f'Победили {current_player}!')
+                    running = False
+                elif game.is_board_full():
+                    print('Ничья!')
+                    save_result('Ничья!')
+                    running = False
+                
+                current_player = 'O' if current_player == 'X' else 'X'
                 
 
         # Обновить окно игры.
