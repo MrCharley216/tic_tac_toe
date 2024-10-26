@@ -142,9 +142,8 @@ def main():
                     print('Ничья!')
                     save_result('Ничья!')
                     running = False
-                
+
                 current_player = 'O' if current_player == 'X' else 'X'
-                
 
         # Обновить окно игры.
         pygame.display.update()
